@@ -1,12 +1,14 @@
-content = []
 # Function to decode the message.
 def decode(message_file):
     # Open the given file and reads each line. 
     text = open(message_file, 'r')
+    # Loops though and reads each line of text.
     for line in text:
-        content.append(line)
-        print(content)
+        # makes each line a list of two strings.
+        manyLines = line.split()
+        print(manyLines)
 
 # Example Usage
 message_file = 'coding_qual_input.txt'
-print(decode(message_file))
+result = decode(message_file)
+print(result)
