@@ -1,4 +1,5 @@
 lines_as_strings = []
+message = []
 
 # Function to decode the message.
 def decode(message_file):
@@ -17,15 +18,20 @@ def decode(message_file):
     for i in range(0, len(sorted_lines)):
         # This is an inner loop to handle the # of COLUMNS.
         for j in range(0, i + 1):
+            if current_pair_index >= len(sorted_lines):
+                # break out of the inner loop so the index is always within range.
+                break
             current_pair = sorted_lines[current_pair_index].split()
-            print(f"{current_pair[0]} {current_pair[1]}", end=' ')
+            # last_string = current_pair[-1]
+            # message.append(last_string)
+            print(current_pair, end=' ')
             current_pair_index += 1
         print()
+    # return message
 
-
-    # print(sorted_lines)
 # Example Usage
 message_file = 'coding_qual_input.txt'
-decode(message_file)
+result = decode(message_file)
+print(result)
 
 
