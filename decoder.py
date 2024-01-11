@@ -3,15 +3,13 @@ lines_as_strings = []
 # Function to decode the message.
 def decode(message_file):
     # Open the given file and reads each line. 
-    text = open(message_file, 'r')
+    with open(message_file, 'r') as text:
     # Loops though and reads each line of text.
-    for line in text:   
-        lines_as_strings.append(line.strip())
-        sorted_lines = sorted(lines_as_strings, key=lambda x: x[:3])
-    # Print statement here does not make a pyramid. Numbers are sorted but only by the first digit (ex: 9 is greater than 10).
-    # print(sorted_lines)
-        # print statement here makes a pyramid but code starts over with each line.
-        # print(sorted_lines)
+        for line in text: 
+            # Removes white space.
+            lines_as_strings.append(line.strip())
+    # Sorts lines by the first three characters
+    sorted_lines = sorted(lines_as_strings, key=lambda x: int(x.split()[0]))
     return sorted_lines
         
 # Example Usage
