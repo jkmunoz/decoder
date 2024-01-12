@@ -1,5 +1,4 @@
 lines_as_strings = []
-message = []
 
 # Function to decode the message.
 def decode(message_file):
@@ -21,17 +20,19 @@ def decode(message_file):
             if current_pair_index >= len(sorted_lines):
                 # break out of the inner loop so the index is always within range.
                 break
+            # Seperates each pair of word and number into an individual list of two objects.
             current_pair = sorted_lines[current_pair_index].split()
-            # last_string = current_pair[-1]
-            # message.append(last_string)
+            # Prints a growing number of pairs on each row of the triangle. 
             print(current_pair, end=' ')
             current_pair_index += 1
         print()
-    # return message
 
 # Example Usage
 message_file = 'coding_qual_input.txt'
 result = decode(message_file)
 print(result)
+
+
+
 
 
